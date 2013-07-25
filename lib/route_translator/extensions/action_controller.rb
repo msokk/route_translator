@@ -5,7 +5,7 @@ module ActionController
     before_filter :set_locale_from_url
 
     def set_locale_from_url
-      I18n.locale = params[RouteTranslator.locale_param_key]
+      I18n.locale = params[RouteTranslator.locale_param_key] unless RouteTranslator.config.no_prefix
     end
   end
 end
